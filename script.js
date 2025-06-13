@@ -1,30 +1,28 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-async function fetchPrice() {
+
+async function getCarPrice() {
     try {
-        const res = await fetch("https://solana-gateway.moralis.io/token/mainnet/6jkASx4mx36MdkfuZEejz9DDVM21dFUZEkrqZydDpump/price", {
-            headers: {
-                "X-API-Key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjkyMzBkNGU3LWUyNjEtNGNiYi1hYzgzLTY4MDZmNDg5YzRhOSIsIm9yZ0lkIjoiNDUzNzM2IiwidXNlcklkIjoiNDY2ODMzIiwidHlwZUlkIjoiODVkOTcxZDMtODgzOS00NmYxLWJiMGEtM2IyY2Y5ZmE4NTU2IiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3NDk4MDU3MTcsImV4cCI6NDkwNTU2NTcxN30.nbLVfn0ocROspwVeWXIOtw-d6Gm42Bnshujhlp3JrMI"
-            }
-        });
+        const res = await fetch("https://api.dexscreener.com/latest/dex/pairs/solana/4tsyb82hhctgjqpuhb2ggtqffl8vxdmubnbke4hymqkc");
         const data = await res.json();
-        if (data.usdPrice) {
-            price = parseFloat(data.usdPrice);
-            if (!isNaN(price)) {
-                document.getElementById("price-box").innerText = `Current Price: $${price.toFixed(6)} per $CAR`;
-            } else {
-                price = 0.000004;
-                document.getElementById("price-box").innerText = "Current Price: $0.000004 per $CAR";
-            }
-        } else {
-            throw new Error("Invalid price data");
-        }
-    } catch (e) {
-        price = 0.000004;
-        document.getElementById("price-box").innerText = "Current Price: $0.000004 per $CAR";
+        const price = parseFloat(data.pair.priceUsd);
+        document.getElementById("price").innerText = `$${price.toFixed(6)} per $CAR`;
+        window.CAR_PRICE = price;
+    } catch (err) {
+        console.error("가격 불러오기 실패:", err);
+        window.CAR_PRICE = 0.0042; // fallback
     }
 }
 
+window.onload = async () => {
+    await getCarPrice();
+    setInterval(getCarPrice, 15000);
+};
+
+window.onload = async () => {
+    await getCarPrice();
+    setInterval(getCarPrice, 15000);
+};
 function copyContract() {
     const address = document.getElementById("contract-address").innerText;
     navigator.clipboard.writeText(address).then(() => {
