@@ -1,0 +1,111 @@
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: white;
+    color: #000;
+    text-align: center;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px 10px;
+}
+
+.logo {
+    width: 500px;
+    margin: 20px auto;
+    display: block;
+}
+
+.price-box {
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.slogan h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.slogan p {
+    color: #777;
+    font-size: 16px;
+}
+
+.token-info {
+    border: 1px solid #eee;
+    padding: 20px;
+    margin: 30px 0;
+    background: #f9f9f9;
+}
+
+.token-info table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.token-info-label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.token-info-value {
+    font-weight: normal;
+    font-size: 16px;
+    color: #000;
+}
+
+.token-info table td {
+    text-align: center;
+}
+
+.button-box a {
+    display: block;
+    margin: 10px auto;
+    width: 200px;
+    padding: 14px 0;
+    background: #FFA500;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+section {
+    margin-top: 32px;
+}
+
+.calculator, .afford-checker {
+    margin: 40px 0;
+}
+
+button {
+    padding: 14px 0;
+    margin-top: 10px;
+    background: #f7931a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 220px;
+}
+
+input, select {
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    margin: 10px 0;
+    font-size: 16px;
+}
