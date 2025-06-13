@@ -60,12 +60,12 @@ function copyContract() {
       let result = "❗Buy More $CAR!";
       if (usdValue >= 3000000) result = "You can afford a Koenigsegg Jesko or Bugatti Chiron!";
       else if (usdValue >= 450000) result = "You can afford a Lamborghini Aventador!";
-      else if (usdValue >= 400000) result = "You can afford a Rolls-Royce Wraith!";
-      else if (usdValue >= 350000) result = "You can afford a McLaren 720S!";
-      else if (usdValue >= 330000) result = "You can afford a Lamborghini Huracán EVO!";
-      else if (usdValue >= 310000) result = "You can afford an Aston Martin DBS Superleggera!";
+      else if (usdValue >= 350000) result = "You can afford a Rolls-Royce Ghost!";
+      else if (usdValue >= 310000) result = "You can afford a McLaren 720S!";
       else if (usdValue >= 280000) result = "You can afford a Ferrari 488 GTB!";
-      else if (usdValue >= 200000) result = "You can afford a Porsche 911 Turbo S!";
+      else if (usdValue >= 260000) result = "You can afford a Lamborghini Huracán!";
+      else if (usdValue >= 210000) result = "You can afford a Porsche 911 Turbo S!";
+      else if (usdValue >= 120000) result = "You can afford a Nissan GT-R!";
       else if (usdValue >= 100000) result = "You can afford a Lexus LC 500!";
       else if (usdValue >= 45000) result = "You can afford a Toyota Supra!";
       document.getElementById("afford-result").innerText = result;
