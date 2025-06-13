@@ -149,15 +149,13 @@ body {
 
 #contract-address {
   display: block;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-x: auto;
   white-space: nowrap;
-  word-break: break-all;
   font-size: 14px;
-  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0 2px;         /* ✅ 살짝 여유 줘서 스크롤 잘림 방지 */
+  box-sizing: border-box; /* ✅ padding 포함한 정확한 폭 계산 */
 }
-
 
 
 
