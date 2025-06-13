@@ -1,0 +1,100 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.center {
+    text-align: center;
+}
+.white-bg {
+    background-color: #ffffff;
+    padding: 40px 20px;
+}
+.logo {
+    width: 500px;
+    margin-bottom: 20px;
+}
+.price-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.slogan h1 {
+    font-size: 3em;
+    margin-bottom: 0;
+}
+.slogan .subtle {
+    color: #999;
+    font-size: 1em;
+}
+.token-info {
+    padding: 40px 20px;
+}
+.info-card {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+}
+.info-card table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.info-card th {
+    text-align: left;
+    font-weight: bold;
+}
+#copy-msg {
+    color: green;
+    display: none;
+    font-size: 0.9em;
+}
+.btn {
+    display: block;
+    background-color: #F7900F;
+    color: white;
+    padding: 10px;
+    margin: 10px auto;
+    width: 200px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+.calculator, .afford {
+    text-align: center;
+    padding: 40px 20px;
+}
+input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    text-align: right;
+}
+
+@media (max-width: 600px) {
+    .logo {
+        width: 90%;
+    }
+    .price-box, .info-card, input[type="text"] {
+        width: 90%;
+        font-size: 1rem;
+    }
+    .btn {
+        width: 90%;
+        font-size: 1rem;
+    }
+    .slogan h1 {
+        font-size: 2em;
+    }
+    .slogan .subtle {
+        font-size: 0.9em;
+    }
+    select {
+        width: 90%;
+        font-size: 1rem;
+    }
+}
