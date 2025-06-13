@@ -1,28 +1,29 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-async function getCarPrice() {
+document.addEventListener("DOMContentLoaded", () => {
+  async function fetchPrice() {
     try {
-        const res = await fetch("https://api.dexscreener.com/latest/dex/pairs/solana/4tsyb82hhctgjqpuhb2ggtqffl8vxdmubnbke4hymqkc");
-        const data = await res.json();
-        const price = parseFloat(data.pair.priceUsd);
-        document.getElementById("price").innerText = `$${price.toFixed(6)} per $CAR`;
-        window.CAR_PRICE = price;
+      const res = await fetch("https://api.dexscreener.com/latest/dex/pairs/solana/fvwypgqkmbc5bsjhgzcjytsmdhkonbuavdupgvdmrwnj"); // 이 부분만 실제 페어 주소로 교체
+      const data = await res.json();
+      let price = 0.000004;
+
+      if (data && data.pair && data.pair.priceUsd) {
+        price = parseFloat(data.pair.priceUsd);
+      }
+
+      window.CAR_PRICE = price;
+      document.getElementById("price-box").innerText = `Current Price: $${price.toFixed(6)} per $CAR`;
     } catch (err) {
-        console.error("가격 불러오기 실패:", err);
-        window.CAR_PRICE = 0.0042; // fallback
+      console.error("Dex Screener API fetch error:", err);
+      const fallbackPrice = 0.000004;
+      window.CAR_PRICE = fallbackPrice;
+      document.getElementById("price-box").innerText = "Current Price: $0.000004 per $CAR";
     }
-}
+  }
 
-window.onload = async () => {
-    await getCarPrice();
-    setInterval(getCarPrice, 15000);
-};
+  fetchPrice();
 
-window.onload = async () => {
-    await getCarPrice();
-    setInterval(getCarPrice, 15000);
-};
 function copyContract() {
     const address = document.getElementById("contract-address").innerText;
     navigator.clipboard.writeText(address).then(() => {
