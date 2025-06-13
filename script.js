@@ -58,7 +58,7 @@ function copyContract() {
       const usdValue = balance * price;
 
       let result = "❗Buy More $CAR!";
-      if (usdValue >= 3000000) result = "You can afford a Koenigsegg Jesko or Bugatti Chiron!";
+      if (usdValue >= 3000000) result = "You can afford a Bugatti Chiron!";
       else if (usdValue >= 450000) result = "You can afford a Lamborghini Aventador!";
       else if (usdValue >= 350000) result = "You can afford a Rolls-Royce Ghost!";
       else if (usdValue >= 310000) result = "You can afford a McLaren 720S!";
