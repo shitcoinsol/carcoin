@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-const MINT_ADDRESS = '토큰페어';
+const MINT_ADDRESS = 'EHA7yRvzCKaUwykSg3qgELeEYM5fRcsA3VyWnF2yqBLV';
 let price = 0.000004;
 
 async function fetchPrice() {
