@@ -1,28 +1,24 @@
 
 document.addEventListener("DOMContentLoaded", () => {
+const MINT_ADDRESS = 'fvwypgqkmbc5bsjhgzcjytsmdhkonbuavdupgvdmrwnj';
+let price = 0.000004;
 
-document.addEventListener("DOMContentLoaded", () => {
-  async function fetchPrice() {
+async function fetchPrice() {
     try {
-      const res = await fetch("https://api.dexscreener.com/latest/dex/pairs/solana/fvwypgqkmbc5bsjhgzcjytsmdhkonbuavdupgvdmrwnj"); // 이 부분만 실제 페어 주소로 교체
-      const data = await res.json();
-      let price = 0.000004;
-
-      if (data && data.pair && data.pair.priceUsd) {
+        const res = await fetch(`https://api.dexscreener.com/latest/dex/pairs/solana/${MINT_ADDRESS}`);
+        const data = await res.json();
         price = parseFloat(data.pair.priceUsd);
-      }
-
-      window.CAR_PRICE = price;
-      document.getElementById("price-box").innerText = `Current Price: $${price.toFixed(6)} per $CAR`;
-    } catch (err) {
-      console.error("Dex Screener API fetch error:", err);
-      const fallbackPrice = 0.000004;
-      window.CAR_PRICE = fallbackPrice;
-      document.getElementById("price-box").innerText = "Current Price: $0.000004 per $CAR";
+        if (!isNaN(price)) {
+            document.getElementById("price-box").innerText = `Current Price: $${price.toFixed(6)} per $CAR`;
+        } else {
+            price = 0.000004;
+            document.getElementById("price-box").innerText = "Current Price: $0.000004 per $CAR";
+        }
+    } catch (e) {
+        price = 0.000004;
+        document.getElementById("price-box").innerText = "Current Price: $0.000004 per $CAR";
     }
-  }
-
-  fetchPrice();
+}
 
 function copyContract() {
     const address = document.getElementById("contract-address").innerText;
