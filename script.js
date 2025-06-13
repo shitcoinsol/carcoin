@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 async function fetchPrice() {
     try {
-        const res = await fetch("https://solana-gateway.moralis.io/token/mainnet/토큰주소/price", {
+        const res = await fetch("https://solana-gateway.moralis.io/token/mainnet/6jkASx4mx36MdkfuZEejz9DDVM21dFUZEkrqZydDpump/price", {
             headers: {
                 "X-API-Key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjkyMzBkNGU3LWUyNjEtNGNiYi1hYzgzLTY4MDZmNDg5YzRhOSIsIm9yZ0lkIjoiNDUzNzM2IiwidXNlcklkIjoiNDY2ODMzIiwidHlwZUlkIjoiODVkOTcxZDMtODgzOS00NmYxLWJiMGEtM2IyY2Y5ZmE4NTU2IiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3NDk4MDU3MTcsImV4cCI6NDkwNTU2NTcxN30.nbLVfn0ocROspwVeWXIOtw-d6Gm42Bnshujhlp3JrMI"
             }
