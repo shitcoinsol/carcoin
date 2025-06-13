@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="assets/favicon.ico" rel="icon"/>
+<link href="assets/favicon.ico" rel="apple-touch-icon"/>
+<head>
+    <meta charset="UTF-8">
+    <title>Car Coin ($CAR)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+
+
+
+
+
+
+<style>
+@media (max-width: 600px) {
+  .carousel-image-box {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .carousel-image-box img {
+    width: 90%;
+  }
+
+  .carousel-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  #prevBtn {
+    left: 5px;
+  }
+
+  #nextBtn {
+    right: 5px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  input, select, button {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 16px;
+  }
+}
+
+
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0 40px;
+}
+
+.carousel-image-box {
+  position: relative;
+  width: 700px;
+  text-align: center;
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-content-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-image-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 26px;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  cursor: pointer;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 1;
+}
+
+.carousel-btn:hover {
+  background: rgba(230, 230, 230, 1);
+  transform: translateY(-50%) scale(1.08);
+}
+
+#prevBtn {
+  left: 15px;
+}
+
+#nextBtn {
+  right: 15px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 오른쪽 여백 제거 */
+}
+
+.logo {
+  display: block;
+  margin: 0 auto; /* 중앙 정렬 */
+  max-width: 90%;
+}
+
+.header, .main-wrapper, .outer-shell {
+  max-width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+
+
+
+</style>
+
+
+
+
+
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="Car Coin Logo" class="logo">
+            <div class="price-box" id="price-box">Current Price: $0.000004 per $CAR</div>
+        </header>
+
+        <section class="slogan">
+            <h1>1 CAR = 1 CAR</h1>
+            <p>Everyone dreams of a supercar. $CAR helps you dream harder.</p>
+        </section>
+
+        <section class="token-info">
+            <table>
+                <tr><td><div class="token-info-label">Token Name</div><div class="token-info-value">Car Coin ($CAR)</div></td></tr>
+                <tr><td><div class="token-info-label">Total Supply</div><div class="token-info-value">1,000,000,000</div></td></tr>
+                <tr>
+                    <td>
+                        <div class="token-info-label">Contract</div>
+                        <div class="token-info-value" id="contract-address">Soon</div>
+                        <button onclick="copyContract()">📋 Copy</button>
+                        <div id="copy-confirm" style="display:none;">Contract Copied ✅</div>
+                    </td>
+                </tr>
+                <tr><td><div class="token-info-label">Chain</div><div class="token-info-value">Solana</div></td></tr>
+            </table>
+            <div class="button-box">
+                <a href="https://x.com/i/communities/1933507345629524342" target="_blank" class="action-button">Join Community</a>
+                <a href="https://pump.fun" target="_blank" class="action-button">Buy $CAR</a>
+            </div>
+        </section>
+
+        <section class="calculator">
+            <h2>🚗 How many $CAR do I need?</h2>
+            
+
+<select id="car-select">
+  <option value="50000">Toyota Supra ($50,000)</option>
+  <option value="100000">Lexus LC 500 ($100,000)</option>
+  <option value="120000">Nissan GT-R ($120,000)</option>
+  <option value="200000">Porsche 911 Turbo S ($200,000)</option>
+  <option value="270000">Lamborghini Huracán ($270,000)</option>
+  <option value="280000">Ferrari 488 GTB ($280,000)</option>
+  <option value="310000">McLaren 720S ($310,000)</option>
+  <option value="400000">Rolls-Royce Ghost ($400,000)</option>
+  <option value="450000">Lamborghini Aventador ($450,000)</option>
+  <option value="3000000">Bugatti Chiron ($3,000,000)</option>
+</select>
+
+
+            <button onclick="calculateCAR()">How many $CAR do I need?</button>
+            <div id="car-result"></div>
+        </section>
+
+        <section class="afford-checker">
+            <h2>💰 What Can I Afford?</h2>
+            <input type="text" id="car-balance" placeholder="Enter amount of $CAR">
+            <button onclick="checkAffordableCar()">Check What You Can Buy</button>
+            <div id="afford-result"></div>
+        </section>
+
+        
+<div class="carousel-container">
+  <div class="carousel-image-box">
+    <div class="carousel-content-wrapper">
+      <button class="carousel-btn" id="prevBtn">←</button>
+      <img id="carouselImage" src="images/car1.jpg" alt="Car Image">
+      <button class="carousel-btn" id="nextBtn">→</button>
+    </div>
+    <p id="carouselName">Toyota Supra</p>
+  </div>
+</div>
+
+<footer>
+            © 2025 Car Coin
+        </footer>
+    </div>
+</body>
+</html>
